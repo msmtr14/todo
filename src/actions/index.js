@@ -1,14 +1,23 @@
-import axios from 'axios'
+let nextTodoId = 0
 
-export const FETCH_TODOS = 'fetch_todos'
+export const addTodo = text => ({
+  type: 'ADD_TODO',
+  id: nextTodoId++,
+  text
+})
 
-const API_URL = 'https://jsonplaceholder.typicode.com/todos'
+export const setShowFilter = filter => ({
+  type: 'SET_SHOW_FILTER',
+  filter
+})
 
-export const fetchTodos = (todos) => {
-  const request = axios.get(`${API_URL}`)
-    .catch(err => { return err.message })
-  return {
-    type: FETCH_TODOS,
-    payload: request
-  }
+export const toggleTodo = id => ({
+  type: 'TOGGLE_TODO',
+  id
+})
+
+export const ShowFilters = {
+  SHOW_ALL: 'SHOW_ALL',
+  SHOW_COMPLETED: 'SHOW_COMPLETED',
+  SHOW_ACTIVE: 'SHOW_ACTIVE'
 }

@@ -1,8 +1,8 @@
 import { combineReducers } from 'redux'
-import FetchTodos from './reducer_todos'
+import todos from './todos'
+import showFilter from './showFilter'
 
-const rootReducer = combineReducers({
-  todos: FetchTodos
+export default combineReducers({
+  todos,
+  showFilter
 })
-
-export default rootReducer
